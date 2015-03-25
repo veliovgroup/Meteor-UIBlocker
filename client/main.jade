@@ -1,0 +1,9 @@
+template(name="UIBlock")
+  if blocked
+    .UIBlock
+      .spinner
+        .bounce1
+        .bounce2
+        .bounce3
+        if message
+          p.message {{message}}
