@@ -1,6 +1,6 @@
 UI blocker and simple loading spinner for Meteor apps
 =============
-Inspired by [atmospherejs.com](atmospherejs.com)
+Inspired by [atmospherejs.com](http://atmospherejs.com)
 
 This package simply works after adding into your project, - additional setup isn't required
 
@@ -10,24 +10,38 @@ meteor add ostrio:uiblocker
 ```
 
 ### Usage
-Block screen:
+__Block screen:__
+
 ```coffeescript
 UIBlock.block()
 UIBlock.block 'some message'
 ```
 
-Unblock screen:
+
+__Unblock screen:__
+
 ```coffeescript
 UIBlock.unblock()
 ```
 
-`Meteor.status` example:
+
+__`Meteor.status` example:__
+
 ```coffeescript
 Tracker.autorun ->
   if Meteor.status().connected
     UIBlock.unblock()
   else
     UIBlock.block Meteor.status().status
+```
+
+
+__`Meteor.call` example:__
+
+```coffeescript
+UIBlock.block 'Sending email...'
+Meteor.call 'sendEmail', subject, body, (err, res) ->
+  UIBlock.unblock()
 ```
 
 ### Recommended DOM structure

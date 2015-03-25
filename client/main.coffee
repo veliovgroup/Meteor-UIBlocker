@@ -2,12 +2,6 @@ UIBlockMessage = new ReactiveVar false
 UIBlockOpen = new ReactiveVar false
 UIBlockTemplateInstance = false
 
-Template.UIBlock.helpers
-  blocked: ->
-    UIBlockOpen.get()
-  message: ->
-    UIBlockMessage.get()
-
 @UIBlock =
   block: (message = false) ->
     Blaze.remove UIBlockTemplateInstance if UIBlockTemplateInstance
@@ -23,3 +17,11 @@ Template.UIBlock.helpers
     UIBlockMessage.set false
     $('html').removeClass 'UIBlocked'
     undefined
+
+Meteor.setTimeout ->
+  Template.UIBlock.helpers
+    blocked: ->
+      UIBlockOpen.get()
+    message: ->
+      UIBlockMessage.get()
+, 10
