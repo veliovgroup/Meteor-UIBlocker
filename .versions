@@ -17,7 +17,7 @@ minimongo@1.0.8
 mquandalle:jade@0.4.1
 observe-sequence@1.0.6
 ordered-dict@1.0.3
-ostrio:uiblocker@1.0.2
+ostrio:uiblocker@1.0.3
 random@1.0.3
 reactive-var@1.0.5
 spacebars-compiler@1.0.6
