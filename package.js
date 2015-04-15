@@ -1,6 +1,6 @@
 Package.describe({
   name: 'ostrio:uiblocker',
-  version: '1.0.3',
+  version: '1.0.4',
   summary: 'UI blocker and loading spinner',
   git: 'https://github.com/VeliovGroup/Meteor-UIBlocker',
   documentation: 'README.md'
