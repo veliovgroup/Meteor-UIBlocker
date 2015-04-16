@@ -24,6 +24,12 @@ __Unblock screen:__
 UIBlock.unblock()
 ```
 
+__Check if screen is blocked:__
+```coffeescript
+if UIBlock.isBlocked
+  # Do something
+```
+
 
 __`Meteor.status` example:__
 

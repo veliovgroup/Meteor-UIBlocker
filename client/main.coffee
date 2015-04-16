@@ -3,7 +3,9 @@ UIBlockOpen = new ReactiveVar false
 UIBlockTemplateInstance = false
 
 @UIBlock =
+  isBlocked: false
   block: (message = false) ->
+    @isBlocked = true
     Blaze.remove UIBlockTemplateInstance if UIBlockTemplateInstance
     if $('body')[0]
       UIBlockTemplateInstance = Blaze.render Template.UIBlock, $('body')[0]
@@ -12,6 +14,7 @@ UIBlockTemplateInstance = false
     $('html').addClass 'UIBlocked'
     undefined
   unblock: ->
+    @isBlocked = false
     Blaze.remove UIBlockTemplateInstance if UIBlockTemplateInstance
     UIBlockOpen.set false
     UIBlockMessage.set false
