@@ -32,7 +32,7 @@ body.mobile
   .UIBlock
     background-color: rgba(0, 0, 0, .5)
 
-html.UIBlocked 
+html.UIBlocked
   background-color: #333 !important
 
   body
@@ -52,7 +52,6 @@ html.UIBlocked
 body:not(.mobile) > :first-child
   transition: filter $time $timings
 
-
 .UIBlock
   position: fixed
   top: 0
@@ -70,24 +69,20 @@ body:not(.mobile) > :first-child
     top: 50%
     left: 50%
     left: calc(50% - 35px)
-
-  .spinner > div
-    width: 18px
-    height: 18px
-    background-color: rgba(0, 0, 0, 0.6)
-    border-radius: 100%
-    display: inline-block
-    animation: bouncedelay 1.4s infinite ease-in-out
-    animation-fill-mode: both
-
-  .spinner p.message
-    color: rgba(0, 0, 0, 0.6)
-
-  .spinner .bounce1
-    animation-delay: -0.32s
-
-  .spinner .bounce2
-    animation-delay: -0.16s
+    & > div
+      width: 18px
+      height: 18px
+      background-color: rgba(0, 0, 0, 0.6)
+      border-radius: 100%
+      display: inline-block
+      animation: bouncedelay 1.4s infinite ease-in-out
+      animation-fill-mode: both
+    p.message
+      color: rgba(0, 0, 0, 0.6)
+    .bounce1
+      animation-delay: -0.32s
+    .bounce2
+      animation-delay: -0.16s
 
 +keyframes(bouncedelay)
   0%, 80%, 100%

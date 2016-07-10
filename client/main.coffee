@@ -1,30 +1,29 @@
-UIBlockMessage = new ReactiveVar false
-UIBlockOpen = new ReactiveVar false
-UIBlockTemplateInstance = false
-
-@UIBlock =
-  isBlocked: false
+class UIBlocker
+  constructor: ->
+    @isBlocked        = false
+    @templateInstance = false
+    @message          = new ReactiveVar false
+    @open             = new ReactiveVar false
   block: (message = false) ->
     @isBlocked = true
-    Blaze.remove UIBlockTemplateInstance if UIBlockTemplateInstance
+    @open.set true
+    @message.set message if message
+    Blaze.remove @templateInstance if @templateInstance
     if $('body')[0]
-      UIBlockTemplateInstance = Blaze.render Template.UIBlock, $('body')[0]
-    UIBlockOpen.set true
-    UIBlockMessage.set message if message
+      @templateInstance = Blaze.render Template.UIBlock, $('body')[0]
     $('html').addClass 'UIBlocked'
-    undefined
+    return
   unblock: ->
     @isBlocked = false
-    Blaze.remove UIBlockTemplateInstance if UIBlockTemplateInstance
-    UIBlockOpen.set false
-    UIBlockMessage.set false
+    @open.set false
+    @message.set false
+    Blaze.remove @templateInstance if @templateInstance
     $('html').removeClass 'UIBlocked'
-    undefined
+    return
 
-Meteor.setTimeout ->
-  Template.UIBlock.helpers
-    blocked: ->
-      UIBlockOpen.get()
-    message: ->
-      UIBlockMessage.get()
-, 10
+
+UIBlock = new UIBlocker
+
+Template.UIBlock.helpers
+  blocked: -> UIBlock.open.get()
+  message: -> UIBlock.message.get()
