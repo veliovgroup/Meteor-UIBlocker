@@ -7,6 +7,11 @@ Inspired by [atmospherejs.com](http://atmospherejs.com)
 
 This package simply works after adding into your project, - additional setup isn't required
 
+Semantic-UI fork by [@tripflex](https://github.com/tripflex):
+ - [sUI Blocker at Atmosphere](https://atmospherejs.com/tripflex/suiblocker)
+ - [sUI Blocker at GitHub](https://github.com/tripflex/meteor-suiblocker)
+
+
 ### Installation
 ```shell
 meteor add ostrio:uiblocker
